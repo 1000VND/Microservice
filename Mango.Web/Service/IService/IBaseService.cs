@@ -4,6 +4,6 @@ namespace Mango.Web.Service.IService
 {
     public interface IBaseService
     {
-        Task<ResponseDto?> SeedAsync(RequestDto requestDto);
+        Task<ResponseDto?> SeedAsync(RequestDto requestDto, bool withBearer = true);
     }
 }
