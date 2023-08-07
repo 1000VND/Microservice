@@ -15,7 +15,7 @@ namespace Mango.Web.Service
 
         public async Task<ResponseDto?> CreateCouponsAsync(CouponDto couponDto)
         {
-            return await _baseService.SeedAsync(new RequestDto()
+            return await _baseService.SendAsync(new RequestDto()
             {
                 ApiType = ApiType.POST,
                 Data = couponDto,
@@ -25,7 +25,7 @@ namespace Mango.Web.Service
 
         public async Task<ResponseDto?> DeleteCouponsAsync(int id)
         {
-            return await _baseService.SeedAsync(new RequestDto()
+            return await _baseService.SendAsync(new RequestDto()
             {
                 ApiType = ApiType.DELETE,
                 Url = CouponAPIBase + "/api/coupon/" + id
@@ -34,7 +34,7 @@ namespace Mango.Web.Service
 
         public async Task<ResponseDto?> GetAllCouponsAsync()
         {
-            return await _baseService.SeedAsync(new RequestDto()
+            return await _baseService.SendAsync(new RequestDto()
             {
                 ApiType = ApiType.GET,
                 Url = CouponAPIBase + "/api/coupon"
@@ -43,7 +43,7 @@ namespace Mango.Web.Service
 
         public async Task<ResponseDto?> GetCouponAsync(string couponCode)
         {
-            return await _baseService.SeedAsync(new RequestDto()
+            return await _baseService.SendAsync(new RequestDto()
             {
                 ApiType = ApiType.GET,
                 Url = CouponAPIBase + "/api/coupon/GetByCode/" + couponCode
@@ -52,7 +52,7 @@ namespace Mango.Web.Service
 
         public async Task<ResponseDto?> GetCouponByIdAsync(int id)
         {
-            return await _baseService.SeedAsync(new RequestDto()
+            return await _baseService.SendAsync(new RequestDto()
             {
                 ApiType = ApiType.GET,
                 Url = CouponAPIBase + "/api/coupon/" + id
@@ -61,7 +61,7 @@ namespace Mango.Web.Service
 
         public async Task<ResponseDto?> UpdateCouponsAsync(CouponDto couponDto)
         {
-            return await _baseService.SeedAsync(new RequestDto()
+            return await _baseService.SendAsync(new RequestDto()
             {
                 ApiType = ApiType.PUT,
                 Data = couponDto,

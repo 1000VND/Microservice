@@ -15,7 +15,7 @@ namespace Mango.Web.Service
 
         public async Task<ResponseDto?> CreateProductsAsync(ProductDto ProductDto)
         {
-            return await _baseService.SeedAsync(new RequestDto()
+            return await _baseService.SendAsync(new RequestDto()
             {
                 ApiType = ApiType.POST,
                 Data = ProductDto,
@@ -25,7 +25,7 @@ namespace Mango.Web.Service
 
         public async Task<ResponseDto?> DeleteProductsAsync(int id)
         {
-            return await _baseService.SeedAsync(new RequestDto()
+            return await _baseService.SendAsync(new RequestDto()
             {
                 ApiType = ApiType.DELETE,
                 Url = ProductAPIBase + "/api/Product/" + id
@@ -34,7 +34,7 @@ namespace Mango.Web.Service
 
         public async Task<ResponseDto?> GetAllProductsAsync()
         {
-            return await _baseService.SeedAsync(new RequestDto()
+            return await _baseService.SendAsync(new RequestDto()
             {
                 ApiType = ApiType.GET,
                 Url = ProductAPIBase + "/api/Product"
@@ -43,7 +43,7 @@ namespace Mango.Web.Service
 
         public async Task<ResponseDto?> GetProductAsync(string ProductCode)
         {
-            return await _baseService.SeedAsync(new RequestDto()
+            return await _baseService.SendAsync(new RequestDto()
             {
                 ApiType = ApiType.GET,
                 Url = ProductAPIBase + "/api/Product/GetByCode/" + ProductCode
@@ -52,7 +52,7 @@ namespace Mango.Web.Service
 
         public async Task<ResponseDto?> GetProductByIdAsync(int id)
         {
-            return await _baseService.SeedAsync(new RequestDto()
+            return await _baseService.SendAsync(new RequestDto()
             {
                 ApiType = ApiType.GET,
                 Url = ProductAPIBase + "/api/Product/" + id
@@ -61,7 +61,7 @@ namespace Mango.Web.Service
 
         public async Task<ResponseDto?> UpdateProductsAsync(ProductDto ProductDto)
         {
-            return await _baseService.SeedAsync(new RequestDto()
+            return await _baseService.SendAsync(new RequestDto()
             {
                 ApiType = ApiType.PUT,
                 Data = ProductDto,
