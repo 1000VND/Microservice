@@ -20,12 +20,10 @@ namespace Mango.Services.OrderAPI.Controllers
         protected ResponseDto _response;
         private IMapper _mapper;
         private readonly AppDbContext _db;
-        private IProductService _productService;
         private readonly IMessageBus _messageBus;
         private readonly IConfiguration _configuration;
         public OrderAPIController(
             AppDbContext db,
-            IProductService productService, 
             IMapper mapper,
             IConfiguration configuration,
             IMessageBus messageBus
@@ -33,7 +31,6 @@ namespace Mango.Services.OrderAPI.Controllers
         {
             _db = db;
             this._response = new ResponseDto();
-            _productService = productService;
             _mapper = mapper;
             _messageBus = messageBus;
             _configuration = configuration;
@@ -207,6 +204,38 @@ namespace Mango.Services.OrderAPI.Controllers
             catch (Exception ex)
             {
                 _response.Message = ex.Message;
+                _response.IsSuccess = false;
+            }
+            return _response;
+        }
+
+        [Authorize]
+        [HttpPost("UpdateOrderStatus/{orderId:int}")]
+        public async Task<ResponseDto> UpdateOrderStatus(int orderId, [FromBody] string newStatus)
+        {
+            try
+            {
+                OrderHeader orderHeader = _db.OrderHeaders.First(u => u.OrderHeaderId == orderId);
+                if (orderHeader != null)
+                {
+                    if (newStatus == SD.Status_Cancelled)
+                    {
+                        //we will give refund
+                        var options = new RefundCreateOptions
+                        {
+                            Reason = RefundReasons.RequestedByCustomer,
+                            PaymentIntent = orderHeader.PaymentIntentId
+                        };
+
+                        var service = new RefundService();
+                        Refund refund = service.Create(options);
+                    }
+                    orderHeader.Status = newStatus;
+                    _db.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
                 _response.IsSuccess = false;
             }
             return _response;

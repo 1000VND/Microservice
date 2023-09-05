@@ -1,7 +1,7 @@
 using Mango.Service.EmailAPI.Extension;
 using Mango.Service.EmailAPI.Messaging;
-using Mango.Service.EmailAPI.Services;
 using Mango.Services.EmailAPI.Data;
+using Mango.Services.EmailAPI.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 

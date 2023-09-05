@@ -66,9 +66,6 @@ namespace Mango.Web.Controllers
                                             (Convert.ToString(stripeResponse.Result));
                 Response.Headers.Add("Location", stripeResponseResult.StripeSessionUrl);
                 return new StatusCodeResult(303);
-
-
-
             }
             return View();
         }

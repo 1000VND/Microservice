@@ -1,11 +1,12 @@
 ﻿using Mango.Service.EmailAPI.Models;
 using Mango.Service.EmailAPI.Models.Dto;
+using Mango.Service.EmailAPI.Services;
 using Mango.Services.EmailAPI.Data;
 using Mango.Services.EmailAPI.Message;
 using Microsoft.EntityFrameworkCore;
 using System.Text;
 
-namespace Mango.Service.EmailAPI.Services
+namespace Mango.Services.EmailAPI.Services
 {
     public class EmailService : IEmailService
     {
