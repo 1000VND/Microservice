@@ -19,7 +19,8 @@ namespace Mango.Web.Service
             {
                 ApiType = ApiType.POST,
                 Data = ProductDto,
-                Url = ProductAPIBase + "/api/Product"
+                Url = ProductAPIBase + "/api/product",
+                ContentType = ContentType.MultipartFormData
             });
         }
 
@@ -28,7 +29,7 @@ namespace Mango.Web.Service
             return await _baseService.SendAsync(new RequestDto()
             {
                 ApiType = ApiType.DELETE,
-                Url = ProductAPIBase + "/api/Product/" + id
+                Url = ProductAPIBase + "/api/product/" + id
             });
         }
 
@@ -37,7 +38,7 @@ namespace Mango.Web.Service
             return await _baseService.SendAsync(new RequestDto()
             {
                 ApiType = ApiType.GET,
-                Url = ProductAPIBase + "/api/Product"
+                Url = ProductAPIBase + "/api/product"
             });
         }
 
@@ -46,7 +47,7 @@ namespace Mango.Web.Service
             return await _baseService.SendAsync(new RequestDto()
             {
                 ApiType = ApiType.GET,
-                Url = ProductAPIBase + "/api/Product/GetByCode/" + ProductCode
+                Url = ProductAPIBase + "/api/product/GetByCode/" + ProductCode
             });
         }
 
@@ -55,7 +56,7 @@ namespace Mango.Web.Service
             return await _baseService.SendAsync(new RequestDto()
             {
                 ApiType = ApiType.GET,
-                Url = ProductAPIBase + "/api/Product/" + id
+                Url = ProductAPIBase + "/api/product/" + id
             });
         }
 
@@ -65,7 +66,8 @@ namespace Mango.Web.Service
             {
                 ApiType = ApiType.PUT,
                 Data = ProductDto,
-                Url = ProductAPIBase + "/api/Product"
+                Url = ProductAPIBase + "/api/product",
+                ContentType = ContentType.MultipartFormData
             });
         }
     }

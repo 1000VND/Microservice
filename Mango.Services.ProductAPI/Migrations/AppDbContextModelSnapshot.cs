@@ -37,6 +37,9 @@ namespace Mango.Services.ProductAPI.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("ImageLocalPath")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("ImageUrl")
                         .HasColumnType("nvarchar(max)");
 

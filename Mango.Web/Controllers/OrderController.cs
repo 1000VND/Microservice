@@ -110,7 +110,6 @@ namespace Mango.Web.Controllers
                 list = new List<OrderHeaderDto>();
             }
             return Json(new { data = list.OrderByDescending(u => u.OrderHeaderId) });
-            //return Json(new { data = list });
         }
     }
 }
