@@ -17,13 +17,13 @@ namespace Mango.Web.Controllers
             _orderService = orderService;
         }
 
-        //[Authorize]
+        [Authorize]
         public IActionResult OrderIndex()
         {
             return View();
         }
 
-        //[Authorize]
+        [Authorize]
         public async Task<IActionResult> OrderDetail(int orderId)
         {
             OrderHeaderDto orderHeaderDto = new OrderHeaderDto();
