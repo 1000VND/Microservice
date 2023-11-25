@@ -1,2 +1,2 @@
 # Microservice
-Learn .NET Core Micrservices (.NET 7 MVC)
+Learn .NET Core Microservices (.NET 7 MVC)
